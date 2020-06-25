@@ -1,6 +1,7 @@
-from json_formatter import JsonFormatter
-
 import vim
+
+from json_formatter import JsonFormatter
+from python_formatter import PythonFormatter
 
 
 def main():
@@ -8,5 +9,7 @@ def main():
     name = vim.current.buffer.name
     if name.endswith(".json"):
         JsonFormatter().run()
+    elif name.endswith(".py"):
+        PythonFormatter().run()
     else:
         raise RuntimeError("Unknown filetype.")
