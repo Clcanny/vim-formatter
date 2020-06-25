@@ -15,6 +15,7 @@ import main
 EOF
 
 let g:VimFormatterJsonIndent = 2
+exec 'let s:VimFormatterPythonStyle = "'.s:pluginRootDir.'/../config/yapf.cfg"'
 
 function! Main()
     python main.main()

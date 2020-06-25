@@ -50,7 +50,7 @@ class AbstractFormatter(object):
         if originGuideFilename is None:
             return None
         tmpGuideFilename = originGuideFilename.split("/")[-1]
-        tmpGuideFilename = self._getAbsPath(self._tmpDir,tmpGuideFilename)
+        tmpGuideFilename = self._getAbsPath(self._tmpDir, tmpGuideFilename)
         shutil.copy(originGuideFilename, tmpGuideFilename)
         return tmpGuideFilename
 
