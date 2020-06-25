@@ -56,7 +56,7 @@ class AbstractFormatter(object):
         return tmpGuideFilename
 
     def _getGuideFilename(self):
-        raise RuntimeError("Call pure virtual function.")
+        return None
 
     def _getFormatCommand(self, formattedFilename, guideFilename):
         raise RuntimeError("Call pure virtual function.")

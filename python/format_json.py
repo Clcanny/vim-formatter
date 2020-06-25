@@ -5,7 +5,8 @@ import sys
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         raise RuntimeError(
-            "Please call format_json.py with arugments: indent and filename.")
+            "Please call {} with arugments: indent and filename.".format(
+                sys.argv[0]))
     indent = int(sys.argv[1])
     filename = sys.argv[2]
 

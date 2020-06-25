@@ -10,10 +10,6 @@ class PythonFormatter(AbstractFormatter):
         self._isort = self._getAbsPath(self._getRootDir(),
                                        "build/venv/bin/isort")
 
-    def _getGuideFilename(self):
-        # return vim.eval("s:VimFormatterPythonStyle")
-        return None
-
     def _getFormatCommand(self, formattedFilename, guideFilename):
         guideFilename = vim.eval("g:VimFormatterPythonStyle")
         cmd = '{} --stdout "{}" | {} --style="{}"'.format(
