@@ -14,6 +14,8 @@ python << EOF
 import main
 EOF
 
+let g:VimFormatterJsonIndent = 2
+
 function! Main()
     python main.main()
 endfunction
