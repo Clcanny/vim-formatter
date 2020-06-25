@@ -19,6 +19,8 @@ isort: $(BUILD_VIRTUAL_ENV)/bin/isort
 
 yapf: $(BUILD_VIRTUAL_ENV)/bin/yapf
 	$(BUILD_VIRTUAL_ENV)/bin/yapf --help
+	mkdir -p config
+	$(BUILD_VIRTUAL_ENV)/bin/yapf --style="google" --style-help > config/yapf.cfg
 
 check: isort yapf
 
