@@ -1,10 +1,11 @@
-import sys
 import collections
 import json
+import sys
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        raise RuntimeError("Please call format_json.py with arugments: indent and filename.")
+        raise RuntimeError(
+            "Please call format_json.py with arugments: indent and filename.")
     indent = int(sys.argv[1])
     filename = sys.argv[2]
 

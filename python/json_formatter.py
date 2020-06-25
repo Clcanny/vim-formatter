@@ -1,5 +1,4 @@
 import vim
-
 from abstract_formatter import AbstractFormatter
 
 

@@ -1,5 +1,4 @@
 import vim
-
 from json_formatter import JsonFormatter
 from python_formatter import PythonFormatter
 

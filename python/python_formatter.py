@@ -1,5 +1,4 @@
 import vim
-
 from abstract_formatter import AbstractFormatter
 
 
@@ -17,6 +16,7 @@ class PythonFormatter(AbstractFormatter):
 
     def _getFormatCommand(self, formattedFilename, guideFilename):
         guideFilename = vim.eval("g:VimFormatterPythonStyle")
-        cmd = '{} --style="{}" "{}"'.format(self._yapf, guideFilename,
-                                            formattedFilename)
+        isort = "{}/build/venv/bin/isort".format(self._getRootDir())
+        cmd = '{} --stdout "{}" | {} --style="{}"'.format(
+            isort, formattedFilename, self._yapf, guideFilename)
         return cmd
