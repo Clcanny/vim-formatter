@@ -16,7 +16,7 @@ class PythonFormatter(AbstractFormatter):
         return None
 
     def _getFormatCommand(self, formattedFilename, guideFilename):
-        guideFilename = vim.eval("s:VimFormatterPythonStyle")
+        guideFilename = vim.eval("g:VimFormatterPythonStyle")
         cmd = '{} --style="{}" "{}"'.format(self._yapf, guideFilename,
                                             formattedFilename)
         return cmd
