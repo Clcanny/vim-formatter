@@ -17,6 +17,9 @@ EOF
 let g:VimFormatterJsonIndent = 2
 let g:VimFormatterXmlIndent = 2
 exec 'let g:VimFormatterPythonStyle = "'.s:pluginRootDir.'/../config/yapf.cfg"'
+let g:VimFormatterBashIndent = 4
+" See beautysh documentation.
+let g:VimFormatterBashFuncStyle = "fnpar"
 
 function! Main()
     python main.main()

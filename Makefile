@@ -14,6 +14,9 @@ $(BUILD_VIRTUAL_ENV)/bin/isort: | $(BUILD_VIRTUAL_ENV)
 $(BUILD_VIRTUAL_ENV)/bin/yapf: | $(BUILD_VIRTUAL_ENV)
 	$|/bin/python -m pip install -q yapf==0.30.0
 
+$(BUILD_VIRTUAL_ENV)/bin/beautysh: | $(BUILD_VIRTUAL_ENV)
+	$|/bin/python -m pip install -q beautysh==6.0.1
+
 isort: $(BUILD_VIRTUAL_ENV)/bin/isort
 	$(BUILD_VIRTUAL_ENV)/bin/isort --help
 
@@ -22,7 +25,10 @@ yapf: $(BUILD_VIRTUAL_ENV)/bin/yapf
 	mkdir -p config
 	$(BUILD_VIRTUAL_ENV)/bin/yapf --style="google" --style-help > config/yapf.cfg
 
-check: isort yapf
+beautysh: $(BUILD_VIRTUAL_ENV)/bin/beautysh
+	$(BUILD_VIRTUAL_ENV)/bin/beautysh --help
+
+check: isort yapf beautysh
 
 clean:
 	rm -rf build

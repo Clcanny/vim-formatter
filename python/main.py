@@ -1,4 +1,5 @@
 import vim
+from bash_formatter import BashFormatter
 from json_formatter import JsonFormatter
 from python_formatter import PythonFormatter
 from xml_formatter import XmlFormatter
@@ -13,5 +14,7 @@ def main():
         XmlFormatter().run()
     elif name.endswith(".py"):
         PythonFormatter().run()
+    elif name.endswith(".sh"):
+        BashFormatter().run()
     else:
         raise RuntimeError("Unknown filetype.")
