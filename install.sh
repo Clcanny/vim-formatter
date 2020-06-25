@@ -21,7 +21,13 @@ then
     exit 1
 fi
 # Generate style file.
-PYTHONPATH=build/lib/python build/bin/yapf --style="google" --style-help > "$rootDir/config/yapf.cfg"
+cd ../.. || exit 1
+mkdir -p config
+PYTHONPATH=thirdparty/yapf/build/lib/python \
+    thirdparty/yapf/build/bin/yapf          \
+    --style="google"                        \
+    --style-help                            \
+    > config/yapf.cfg
 if [ $? -ne 0 ]
 then
     echo "Generate default config file failed, return code: $?"
