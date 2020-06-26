@@ -16,7 +16,7 @@ class AbstractFormatter(object):
 
     def run(self):
         try:
-            if not self._isVimBufferSave:
+            if not self._isVimBufferSave():
                 raise RuntimeError("Please save buffer before formatting.")
             self._createTmpDir()
             formattedFilename = self._createFormattedFile()
@@ -30,8 +30,7 @@ class AbstractFormatter(object):
             self._delTmpDir()
 
     def _isVimBufferSave(self):
-        # TODO(junbin.rjb) Detect buffer status.
-        return True
+        return int(vim.eval("&modified")) == 0
 
     def _createTmpDir(self):
         rootDir = self._getRootDir()
@@ -80,6 +79,7 @@ class AbstractFormatter(object):
     def _writeToVimBuffer(self, content):
         self._storeCursorPosition()
         self._vimBuffer[:] = content
+        self._restoreCursorPosition()
 
     def _storeCursorPosition(self):
         self._col = int(vim.eval('col(".")'))
