@@ -69,7 +69,7 @@ class AbstractFormatter(object):
             (output, error) = process.communicate()
             if process.returncode != 0:
                 raise RuntimeError(error)
-            output = output.split("\n")
+            output = output.splitlines()
             if output[-1] is None or len(output[-1]) == 0:
                 del output[-1]
             return output
