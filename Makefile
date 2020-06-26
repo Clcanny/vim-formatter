@@ -20,6 +20,9 @@ $(BUILD_VIRTUAL_ENV)/bin/beautysh: | $(BUILD_VIRTUAL_ENV)
 docker-clang-format:
 	docker pull unibeautify/clang-format
 
+$(BUILD_VIRTUAL_ENV)/bin/cmake-format: | $(BUILD_VIRTUAL_ENV)
+	$|/bin/python -m pip install -q cmake-format==0.6.10
+
 isort: $(BUILD_VIRTUAL_ENV)/bin/isort
 	$(BUILD_VIRTUAL_ENV)/bin/isort --help
 
@@ -34,7 +37,10 @@ beautysh: $(BUILD_VIRTUAL_ENV)/bin/beautysh
 clang-format: docker-clang-format
 	docker run --rm -i unibeautify/clang-format "-help"
 
-check: isort yapf beautysh clang-format
+cmake-format: $(BUILD_VIRTUAL_ENV)/bin/cmake-format
+	$(BUILD_VIRTUAL_ENV)/bin/cmake-format --help
+
+check: isort yapf beautysh clang-format cmake-format
 
 clean:
 	rm -rf build

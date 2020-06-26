@@ -1,5 +1,6 @@
 import vim
 from bash_formatter import BashFormatter
+from cmake_formatter import CMakeFormatter
 from cpp_formatter import CppFormatter
 from json_formatter import JsonFormatter
 from python_formatter import PythonFormatter
@@ -19,5 +20,7 @@ def main():
         PythonFormatter().run()
     elif name.endswith(".h") or name.endswith(".cpp"):
         CppFormatter().run()
+    elif name.endswith("CMakeLists.txt"):
+        CMakeFormatter().run()
     else:
         raise RuntimeError("Unknown filetype.")

@@ -36,6 +36,11 @@ let g:VimFormatterCppStyle = {
     \ "BinPackParameters": "false",
     \ "AlignAfterOpenBracket": "true"
     \ }
+let g:VimFormatterCMakeStyle = {
+    \ "enable-sort": "True",
+    \ "autosort": "True",
+    \ "max-pargs-hwrap": 2
+    \ }
 
 function! Main()
     python main.main()
