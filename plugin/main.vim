@@ -34,7 +34,7 @@ let g:VimFormatterCppStyle = {
     \ "AllowShortFunctionsOnASingleLine": "false",
     \ "BinPackArguments": "false",
     \ "BinPackParameters": "false",
-    \ "AlignAfterOpenBracket": "true",
+    \ "AlignAfterOpenBracket": "true"
     \ }
 
 function! Main()
