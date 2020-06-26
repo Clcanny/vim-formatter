@@ -8,19 +8,18 @@ from xml_formatter import XmlFormatter
 
 
 def main():
-    # TODO(junbin.rjb) Get filetype.
-    name = vim.current.buffer.name
-    if name.endswith(".json"):
+    filetype = vim.eval("&filetype")
+    if filetype == "json":
         JsonFormatter().run()
-    elif name.endswith(".xml"):
+    elif filetype == "xml":
         XmlFormatter().run()
-    elif name.endswith(".sh"):
+    elif filetype == "sh":
         BashFormatter().run()
-    elif name.endswith(".py"):
+    elif filetype == "python":
         PythonFormatter().run()
-    elif name.endswith(".h") or name.endswith(".cpp"):
+    elif filetype == "c" or filetype == "cpp":
         CppFormatter().run()
-    elif name.endswith("CMakeLists.txt"):
+    elif filetype == "cmake":
         CMakeFormatter().run()
     else:
         raise RuntimeError("Unknown filetype.")
