@@ -49,6 +49,7 @@ let g:VimFormatterSqlStyle = {
     \ "keywords": "upper",
     \ "identifiers": "lower",
     \ "reindent": "",
+    \ "use_space_around_operators": "",
     \ "indent_width": 2
     \ }
 
