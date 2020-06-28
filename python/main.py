@@ -4,6 +4,7 @@ from cmake_formatter import CMakeFormatter
 from cpp_formatter import CppFormatter
 from json_formatter import JsonFormatter
 from python_formatter import PythonFormatter
+from swift_formatter import SwiftFormatter
 from xml_formatter import XmlFormatter
 
 
@@ -21,5 +22,7 @@ def main():
         CppFormatter().run()
     elif filetype == "cmake":
         CMakeFormatter().run()
+    elif filetype == "swift":
+        SwiftFormatter().run()
     else:
         raise RuntimeError("Unknown filetype.")

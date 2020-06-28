@@ -41,6 +41,10 @@ let g:VimFormatterCMakeStyle = {
     \ "autosort": "True",
     \ "max-pargs-hwrap": 2
     \ }
+let g:VimFormatterSwiftStyle = {
+    \ "swiftversion": 5,
+    \ "maxwidth": 80
+    \ }
 
 function! Main()
     python3 main.main()
