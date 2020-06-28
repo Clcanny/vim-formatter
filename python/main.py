@@ -4,6 +4,7 @@ from cmake_formatter import CMakeFormatter
 from cpp_formatter import CppFormatter
 from json_formatter import JsonFormatter
 from python_formatter import PythonFormatter
+from sql_formatter import SqlFormatter
 from swift_formatter import SwiftFormatter
 from xml_formatter import XmlFormatter
 
@@ -24,5 +25,7 @@ def main():
         CMakeFormatter().run()
     elif filetype == "swift":
         SwiftFormatter().run()
+    elif filetype == "sql":
+        SqlFormatter().run()
     else:
         raise RuntimeError("Unknown filetype.")

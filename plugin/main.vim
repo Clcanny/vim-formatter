@@ -45,6 +45,12 @@ let g:VimFormatterSwiftStyle = {
     \ "swiftversion": 5,
     \ "maxwidth": 80
     \ }
+let g:VimFormatterSqlStyle = {
+    \ "keywords": "upper",
+    \ "identifiers": "lower",
+    \ "reindent": "",
+    \ "indent_width": 2
+    \ }
 
 function! Main()
     python3 main.main()

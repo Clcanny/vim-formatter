@@ -23,6 +23,9 @@ docker-clang-format:
 $(BUILD_VIRTUAL_ENV)/bin/cmake-format: | $(BUILD_VIRTUAL_ENV)
 	$|/bin/python -m pip install -q cmake-format==0.6.10
 
+$(BUILD_VIRTUAL_ENV)/bin/sqlformat: | $(BUILD_VIRTUAL_ENV)
+	$|/bin/python -m pip install -q sqlparse==0.3.1
+
 isort: $(BUILD_VIRTUAL_ENV)/bin/isort
 	$(BUILD_VIRTUAL_ENV)/bin/isort --help
 
@@ -40,7 +43,10 @@ clang-format: docker-clang-format
 cmake-format: $(BUILD_VIRTUAL_ENV)/bin/cmake-format
 	$(BUILD_VIRTUAL_ENV)/bin/cmake-format --help
 
-check: isort yapf beautysh clang-format cmake-format
+sqlformat: $(BUILD_VIRTUAL_ENV)/bin/sqlformat
+	$(BUILD_VIRTUAL_ENV)/bin/sqlformat --help
+
+check: isort yapf beautysh clang-format cmake-format sqlformat
 
 clean:
 	rm -rf build
