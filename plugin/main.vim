@@ -1,18 +1,6 @@
 " reference: http://candidtim.github.io/vim/2017/08/11/write-vim-plugin-in-python.html
 " ready to import python files in python directory
 let s:pluginRootDir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-python3 << EOF
-import sys
-from os.path import normpath, join
-import vim
-pluginRootDir = vim.eval('s:pluginRootDir')
-python_root_dir = normpath(join(pluginRootDir, '..', 'python'))
-sys.path.insert(0, python_root_dir)
-EOF
-
-python3 << EOF
-import main
-EOF
 
 " Refer to davidhalter/jedi-vim.
 " Settings initialization.
@@ -54,7 +42,29 @@ let g:VimFormatterSqlStyle = {
     \ }
 
 function! Main()
-    python3 main.main()
+    if (has('python3'))
+python3 << EOF
+import sys
+from os.path import normpath, join
+import vim
+pluginRootDir = vim.eval('s:pluginRootDir')
+python_root_dir = normpath(join(pluginRootDir, '..', 'python'))
+sys.path.insert(0, python_root_dir)
+import main
+EOF
+        python3 main.main()
+    else
+python << EOF
+import sys
+from os.path import normpath, join
+import vim
+pluginRootDir = vim.eval('s:pluginRootDir')
+python_root_dir = normpath(join(pluginRootDir, '..', 'python'))
+sys.path.insert(0, python_root_dir)
+import main
+EOF
+        python main.main()
+    endif
 endfunction
 
 command! -nargs=0 Format call Main()
