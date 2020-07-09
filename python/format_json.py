@@ -11,9 +11,9 @@ if __name__ == "__main__":
     filename = sys.argv[2]
 
     jsonDecoder = json.JSONDecoder(object_pairs_hook=collections.OrderedDict)
-    infile = open(filename, "r")
+    infile = open(filename, "r", encoding="utf-8")
     content = infile.read()
     infile.close()
     jsonDict = jsonDecoder.decode(content)
-    content = json.dumps(jsonDict, indent=indent)
+    content = json.dumps(jsonDict, indent=indent, ensure_ascii=False)
     print(content)
