@@ -22,7 +22,8 @@ let g:VimFormatterCppStyle = {
     \ "AllowShortFunctionsOnASingleLine": "false",
     \ "BinPackArguments": "false",
     \ "BinPackParameters": "false",
-    \ "AlignAfterOpenBracket": "true"
+    \ "AlignAfterOpenBracket": "true",
+    \ "PenaltyReturnTypeOnItsOwnLine": 1000,
     \ }
 let g:VimFormatterCMakeStyle = {
     \ "enable-sort": "True",
